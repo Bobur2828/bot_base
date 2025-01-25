@@ -1,1 +1,1 @@
-from main.models.base import Base
+from main.models.bot_user import BotClient
