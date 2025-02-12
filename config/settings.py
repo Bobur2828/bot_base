@@ -2,15 +2,11 @@ import os
 from pathlib import Path
 from config.custom_config import UNFOLD,setup_logging
 
-BOT_HOST = "https://e2ad-213-230-78-11.ngrok-free.app"  
+BOT_HOST = "https://08c4-213-230-76-20.ngrok-free.app"  
 
-BOT_TOKEN = "7218359593:AAHdu2YxU_o3rM6HCazmdD-XhwBocebI__o" 
+BOT_TOKEN = "8033657841:AAHHpzPug1FdMZ9rhDLoEW6DA0PQKo7jojQ" 
 
 BOT_WEBHOOK_URL = f"{BOT_HOST}/bot/webhook/{BOT_TOKEN.split(':', maxsplit=1)[0]}/updates" # noqa
-
-
-
-
 
 
 # ======================================= BASE SETTINGS =======================================

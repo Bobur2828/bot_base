@@ -9,27 +9,27 @@ from main.instance import utils
 from main.instance.filters import TextFilter,StartsWithFilter
 from aiogram.types import ContentType
 from aiogram.filters import Filter as F
-
+from main import models
 logging.basicConfig(level=logging.INFO)
 
 webhook_dp = Dispatcher()
-# async def handle_start(message: Message, bot: Bot) -> None:
+async def handle_start(message: Message, bot: Bot) -> None:
 
-    # bio = await request.get_first_bio()
+    await models.BotClient.create_or_update(
+        chat_id=message.chat.id,
+        first_name=message.from_user.first_name,
+        last_name=message.from_user.last_name,
+        username=message.from_user.username,
+        language_code=message.from_user.language_code,
+    )
 
-    # await client.BotClient.create_or_update(
-    #     chat_id=message.chat.id,
-    #     first_name=message.from_user.first_name,
-    #     last_name=message.from_user.last_name,
-    #     username=message.from_user.username,
-    #     language_code=message.from_user.language_code,
-    # )
-    # chat_id = message.chat.id
-    # await bot.send_message(
-    #     chat_id=chat_id,
-    #     text=bio.name,
-    #     reply_markup=await utils.get_lang_reply_markup()
-    # )
+    chat_id = message.chat.id
+    await bot.send_message(
+        chat_id=chat_id,
+        text="Salom, qalaysan!",
+        reply_markup=await utils.get_lang_reply_markup()
+    )
+
     
     
     
@@ -56,7 +56,7 @@ webhook_dp = Dispatcher()
 
 
 
-# webhook_dp.message.register(handle_start, CommandStart())
+webhook_dp.message.register(handle_start, CommandStart())
 # webhook_dp.message.register(test1, TextFilter(text=["qalaysan566"]))
 # webhook_dp.callback_query.register(handle_language, TextFilter(text=["lang_ru", "lang_en", "lang_uz"]))
 

@@ -12,7 +12,7 @@ admin.site.unregister(User)
 admin.site.unregister(Group)
 
 app_models = apps.get_models()
-print(app_models)
+# print(app_models)
 exclude_models = ['Session', 'ContentType', 'Permission', 'Site','Group','User','LogEntry']
 
 # Ilovadagi barcha modellarni olish
